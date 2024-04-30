@@ -1,0 +1,44 @@
+<h1> Search Friend </h1>
+
+</br>
+
+<%= form_with url: "/home/addfriend", method: :get do |form| %>
+  <div class="field mb-3">
+    <%= form.text_field :email, class: "form-control", placeholder: "name@example" %>
+    </br>
+    <%= form.submit "Search", class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>
+
+</br> </br>
+
+<% if @friend_search_result.to_s.include?("@") %>
+  <%= form_with url: "/home/addfriend", method: :get do |form| %>
+    <div class="field mb-3">
+      <%= form.text_field :email, class: "form-control", value:@friend_search_result%>
+      </br>
+      <%= form.submit "Add", class: "btn btn-primary btn-sm btn-success" %>
+    </div>
+  <% end %>
+<% else %>
+  <font color="red"> <%= @friend_search_result %> </font>
+<% end %>
+
+</br></br></br></br>
+
+<h1> Sent Requests </h1>
+</br></br>
+<% query = "SELECT * FROM friendlists WHERE user1=\'" + current_user.email + "\'" %>
+<% result = ActiveRecord::Base.connection.execute(query) %>
+<% result.each do |element| %>
+  <% if element["state"] == 1 %>
+    <%= form_with url: "/home/deletefriend", method: :get do |form| %>
+      <div class="field mb-3">
+        <%= form.text_field :email, class: "form-control", value:element["user2"] %>
+        </br>
+        <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
+        </br></br></br>
+      </div>
+    <% end %>
+  <% end %> 
+<% end %>

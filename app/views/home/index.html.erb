@@ -1,0 +1,7 @@
+<h1> Hello 
+<% if user_signed_in? %> 
+	<%= current_user.email.split('@').first().capitalize() %> 
+<% else %>
+	Guest
+<% end %>
+!</h1>

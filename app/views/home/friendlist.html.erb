@@ -1,0 +1,52 @@
+<h1> Friend Requests </h1>
+</br></br>
+<% query = "SELECT * FROM friendlists WHERE user2=\'" + current_user.email + "\'" %>
+<% result = ActiveRecord::Base.connection.execute(query) %>
+<% result.each do |element| %>
+  <% if element["state"] == 1 %>
+    <%= form_with url: "/home/acceptfriend", method: :get do |form| %>
+      <div class="field mb-3">
+        <%= form.text_field :email, class: "form-control", value:element["user1"] %>
+        </br>
+        <%= form.submit "Accept", class: "btn btn-primary btn-sm btn-success" %>
+        <%= form.submit "Reject", class: "btn btn-primary btn-sm btn-danger" %>
+        </br></br></br>
+      </div>
+    <% end %>
+  <% end %> 
+<% end %>
+
+</br></br></br></br>
+
+<h1> Friend List </h1>
+</br></br>
+<% query = "SELECT * FROM friendlists WHERE user1=\'" + current_user.email + "\'" %>
+<% result = ActiveRecord::Base.connection.execute(query) %>
+<% result.each do |element| %>
+  <% if element["state"] == 2 %>
+    <%= form_with url: "/home/deletefriend", method: :get do |form| %>
+      <div class="field mb-3">
+        <%= form.text_field :email, class: "form-control", value:element["user2"] %>
+        </br>
+        <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
+        </br></br></br>
+      </div>
+    <% end %>
+  <% end %> 
+<% end %>
+<% query = "SELECT * FROM friendlists WHERE user2=\'" + current_user.email + "\'" %>
+<% result = ActiveRecord::Base.connection.execute(query) %>
+<% result.each do |element| %>
+  <% if element["state"] == 2 %>
+    <%= form_with url: "/home/deletefriend", method: :get do |form| %>
+      <div class="field mb-3">
+        <%= form.text_field :email, class: "form-control", value:element["user1"] %>
+        </br>
+        <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
+        </br></br></br>
+      </div>
+    <% end %>
+  <% end %> 
+<% end %>
+
+
