@@ -1,0 +1,28 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  </br> </br>
+  <div class="field mb-3">
+    <%= form.text_field :email, :readonly => true, value: current_user.email.to_s, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.text_area :content, :rows => "6", class: "form-control"%>
+  </div>
+
+  </br> </br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -6,7 +6,7 @@
   <% if element["state"] == 1 %>
     <%= form_with url: "/home/acceptfriend", method: :get do |form| %>
       <div class="field mb-3">
-        <%= form.text_field :email, class: "form-control", value:element["user1"] %>
+        <%= form.text_field :email, :readonly => true, class: "form-control", value:element["user1"] %>
         </br>
         <%= form.submit "Accept", class: "btn btn-primary btn-sm btn-success" %>
         <%= form.submit "Reject", class: "btn btn-primary btn-sm btn-danger" %>
@@ -26,7 +26,7 @@
   <% if element["state"] == 2 %>
     <%= form_with url: "/home/deletefriend", method: :get do |form| %>
       <div class="field mb-3">
-        <%= form.text_field :email, class: "form-control", value:element["user2"] %>
+        <%= form.text_field :email, :readonly => true, class: "form-control", value:element["user2"] %>
         </br>
         <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
         </br></br></br>
@@ -40,7 +40,7 @@
   <% if element["state"] == 2 %>
     <%= form_with url: "/home/deletefriend", method: :get do |form| %>
       <div class="field mb-3">
-        <%= form.text_field :email, class: "form-control", value:element["user1"] %>
+        <%= form.text_field :email, :readonly => true, class: "form-control", value:element["user1"] %>
         </br>
         <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
         </br></br></br>

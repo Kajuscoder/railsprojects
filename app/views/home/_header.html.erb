@@ -11,10 +11,16 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-	          <%= link_to "Add Friend", home_addfriend_path, class:"nav-link" %>
+	          <%= link_to "Timeline", home_timeline_path, class:"nav-link" %>
+	        </li>
+	        <li class="nav-item">
+	          <%= link_to "My Posts", posts_path, class:"nav-link" %>
 	        </li>
 	        <li class="nav-item">
 	          <%= link_to "Friend List", home_friendlist_path, class:"nav-link" %>
+	        </li>
+          <li class="nav-item">
+	          <%= link_to "Add Friend", home_addfriend_path, class:"nav-link" %>
 	        </li>
 	        <li class="nav-item">
 	          <%= link_to "Edit Password", edit_user_registration_path, class:"nav-link" %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+</br></br>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <% if post.email.to_s == current_user.email.to_s %>
+      <%= render post %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path, class:"link-success link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" %>

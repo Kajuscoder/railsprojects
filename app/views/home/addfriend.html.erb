@@ -15,7 +15,7 @@
 <% if @friend_search_result.to_s.include?("@") %>
   <%= form_with url: "/home/addfriend", method: :get do |form| %>
     <div class="field mb-3">
-      <%= form.text_field :email, class: "form-control", value:@friend_search_result%>
+      <%= form.text_field :email, :readonly => true, class: "form-control", value:@friend_search_result%>
       </br>
       <%= form.submit "Add", class: "btn btn-primary btn-sm btn-success" %>
     </div>
@@ -34,7 +34,7 @@
   <% if element["state"] == 1 %>
     <%= form_with url: "/home/deletefriend", method: :get do |form| %>
       <div class="field mb-3">
-        <%= form.text_field :email, class: "form-control", value:element["user2"] %>
+        <%= form.text_field :email, :readonly => true, class: "form-control", value:element["user2"] %>
         </br>
         <%= form.submit "Delete", class: "btn btn-primary btn-sm btn-danger" %>
         </br></br></br>

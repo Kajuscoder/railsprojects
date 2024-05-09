@@ -1,0 +1,26 @@
+<h1> Timeline </h1>
+</br></br>
+<% query = "SELECT * FROM posts" %>
+<% result = ActiveRecord::Base.connection.execute(query) %>
+<% friends = Array.new %>
+<% query = "SELECT * FROM friendlists WHERE user1=\'" + current_user.email + "\' AND state=2" %>
+<% friends1 = ActiveRecord::Base.connection.execute(query) %>
+<% friends1.each do |f1| %>
+  <% friends.push(f1["user2"]) %>
+<% end %>
+<% query = "SELECT * FROM friendlists WHERE user2=\'" + current_user.email + "\' AND state=2" %>
+<% friends2 = ActiveRecord::Base.connection.execute(query) %>
+<% friends2.each do |f1| %>
+  <% friends.push(f1["user1"]) %>
+<% end %>
+<% result.each do |element| %>
+  <% if friends.include?(element["email"]) %>
+    <div class="jumbotron">
+      <p class="lead"><%= element["email"] %></p>
+      <p><%= element["content"] %></p>
+      <% link_to "Show More", "/posts/"+ element["id"].to_s %>
+      <hr class="my-4">
+      </br>
+    </div>
+  <% end %>
+<% end %>

@@ -12,4 +12,4 @@ A Simple Ruby On Rails Web Application with Social Media Features:
 
 * Search Post                       [TBD]
 
-* Messaging                         [TFD]
+* Messaging                         [TBD]

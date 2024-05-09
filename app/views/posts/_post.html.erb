@@ -1,0 +1,9 @@
+<% if post.email.to_s == current_user.email.to_s %>
+  <div class="jumbotron">
+    <p class="lead"><%= post.email %></p>
+    <p><%= post.content %></p>
+    <p> <%= link_to "Show more", post, class:"link-info link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" %> </p>
+    <hr class="my-4">
+    </br>
+  </div>
+<% end %>

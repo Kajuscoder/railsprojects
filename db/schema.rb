@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_171146) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_30_145444) do
   create_table "friendlists", force: :cascade do |t|
     t.string "user1"
     t.string "user2"
     t.integer "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "email"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
