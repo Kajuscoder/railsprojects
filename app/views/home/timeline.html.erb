@@ -15,12 +15,14 @@
 <% end %>
 <% result.each do |element| %>
   <% if friends.include?(element["email"]) %>
-    <div class="jumbotron">
-      <p class="lead"><%= element["email"] %></p>
-      <p><%= element["content"] %></p>
-      <% link_to "Show More", "/posts/"+ element["id"].to_s %>
-      <hr class="my-4">
-      </br>
+    <div class="card border-secondary mb-3">
+      <div class="card-header"><strong><%= element["email"] %></strong></div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><%= element["created_at"].to_s %></h6></br>
+        <p class="card-text"><%= element["content"] %></p>
+        <p> <% link_to "Show More", "/posts/"+ element["id"].to_s %> </p>
+      </div>
     </div>
+    </br></br>
   <% end %>
 <% end %>

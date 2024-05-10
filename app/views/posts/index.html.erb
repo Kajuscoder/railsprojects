@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Your Posts</h1>
 </br></br>
 
 <div id="posts">
@@ -11,4 +11,8 @@
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path, class:"link-success link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" %>
+<div class="card text-white bg-success" style="max-width: 7rem;">
+  <div class="card-body">
+    <h6 class="card-title"><%= link_to "New post", new_post_path, class:"link-light link-offset-2 link-underline-opacity-0" %></h6>
+  </div>
+</div>

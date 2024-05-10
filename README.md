@@ -6,10 +6,10 @@ A Simple Ruby On Rails Web Application with Social Media Features:
 
 * Friends (Search, Request, Add)    [DONE]
 
-* Posts                             [ONGOING]
+* Posts                             [DONE]
 
-* Timeline                          [TBD]
+* Timeline                          [DONE]
+
+* Messaging                         [ONGOING]
 
 * Search Post                       [TBD]
-
-* Messaging                         [TBD]
